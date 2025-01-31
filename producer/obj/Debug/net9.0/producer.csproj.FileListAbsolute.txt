@@ -16,3 +16,4 @@ C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\producer\obj\Debug\net9.0\refint
 C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\producer\obj\Debug\net9.0\producer.pdb
 C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\producer\obj\Debug\net9.0\producer.genruntimeconfig.cache
 C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\producer\obj\Debug\net9.0\ref\producer.dll
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\producer\obj\Debug\net9.0\producer.sourcelink.json

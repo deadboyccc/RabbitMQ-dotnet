@@ -26,7 +26,7 @@ internal class RabbitMQSender
     {
       var processingTime = new Random().Next(1, 3);
       // creating the message
-      var message = $"{++messageId}test msg from .net";
+      var message = $"{++messageId}: test msg from .net & took {processingTime}s to send";
       // encoding the message to bytes (stream of binary to stream/send)
       var encodedMsgBody = Encoding.UTF8.GetBytes(message);
 
@@ -34,7 +34,7 @@ internal class RabbitMQSender
       await channel.Result.BasicPublishAsync("", "first_queue", encodedMsgBody);
 
       // confirm
-      Console.WriteLine($" [x] Sent {message}");
+      Console.WriteLine($" [x] Sent {message} & took {processingTime}s to send");
       await Task.Delay(TimeSpan.FromSeconds(processingTime));
 
     }

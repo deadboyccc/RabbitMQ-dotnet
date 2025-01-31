@@ -31,7 +31,7 @@ internal class RabbitMQConsumer
       // Simulate processing the message
       var body = ea.Body.ToArray();
       var message = Encoding.UTF8.GetString(body);
-      Console.WriteLine($" [x] Received {message} | Took {processingTime} seconds");
+      Console.WriteLine($" [x] Received {message} | Took {processingTime}s to recieve");
 
       // Simulating waiting time to examine the competing consumers pattern
       // between 1-4 seconds
