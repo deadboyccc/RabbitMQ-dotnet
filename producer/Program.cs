@@ -21,15 +21,22 @@ internal class RabbitMQSender
     // creating a queue
     await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
-    // creating the message
-    var message = "test msg from .net";
-    // encoding the message to bytes (stream of binary to stream/send)
-    var encodedMsgBody = Encoding.UTF8.GetBytes(message);
+    UInt32 messageId = 0;
+    while (true)
+    {
+      var processingTime = new Random().Next(1, 3);
+      // creating the message
+      var message = $"{++messageId}test msg from .net";
+      // encoding the message to bytes (stream of binary to stream/send)
+      var encodedMsgBody = Encoding.UTF8.GetBytes(message);
 
-    // we have to public to an exchange - "" = default exchange 
-    await channel.Result.BasicPublishAsync("", "first_queue", encodedMsgBody);
+      // we have to public to an exchange - "" = default exchange 
+      await channel.Result.BasicPublishAsync("", "first_queue", encodedMsgBody);
 
-    // confirm
-    Console.WriteLine($" [x] Sent {message}");
+      // confirm
+      Console.WriteLine($" [x] Sent {message}");
+      await Task.Delay(TimeSpan.FromSeconds(processingTime));
+
+    }
   }
 }
