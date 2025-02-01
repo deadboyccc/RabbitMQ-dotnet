@@ -18,8 +18,16 @@ internal class RabbitMQSender
     // creating a channel or multiple ones depending on the need
     using var channel = connection.Result.CreateChannelAsync();
 
+    // Creating an exchange
+
+    await channel.Result.ExchangeDeclareAsync(exchange: "pubsub", type: ExchangeType.Fanout);
+
+
+
+
+
     // creating a queue
-    await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
+    // await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
     UInt32 messageId = 0;
     while (true)
@@ -31,7 +39,7 @@ internal class RabbitMQSender
       var encodedMsgBody = Encoding.UTF8.GetBytes(message);
 
       // we have to public to an exchange - "" = default exchange 
-      await channel.Result.BasicPublishAsync("", "first_queue", encodedMsgBody);
+      await channel.Result.BasicPublishAsync(exchange: "pubsub", "", encodedMsgBody);
 
       // confirm
       Console.WriteLine($" [x] Sent {message} & took {processingTime}s to send");

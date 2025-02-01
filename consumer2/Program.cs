@@ -13,10 +13,17 @@ internal class RabbitMQConsumer
 
     // Create channel (single channel for simplicity)
     using var channel = connection.Result.CreateChannelAsync();
+    await channel.Result.ExchangeDeclareAsync(exchange: "pubsub", type: ExchangeType.Fanout);
+
+    //declare temp queue 
+    var queueName = await channel.Result.QueueDeclareAsync();
+    await channel.Result.QueueBindAsync(queue: queueName, exchange: "pubsub", routingKey: "");
 
 
-    // Declare queue to consume from
-    await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
+    // Consume messages from the temp queue
+
+    // Declare Named* queue to consume from
+    // await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
     // setting channel settings to test competing consumer pattern
     await channel.Result.BasicQosAsync(prefetchSize: 0, prefetchCount: 1, global: false);
@@ -40,10 +47,9 @@ internal class RabbitMQConsumer
     };
 
     // Consume messages
-    await channel.Result.BasicConsumeAsync(queue: "first_queue", autoAck: false, consumer: consumer);
+    await channel.Result.BasicConsumeAsync(queue: queueName, autoAck: false, consumer: consumer);
 
     Console.WriteLine(" [*] Waiting for messages. Press [enter] to exit.");
     Console.ReadLine(); // Keep the program running
   }
 }
-
