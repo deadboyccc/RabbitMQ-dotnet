@@ -13,40 +13,51 @@ internal class RabbitMQConsumer
 
     // Create channel (single channel for simplicity)
     using var channel = connection.Result.CreateChannelAsync();
+
+    //we declare the exchange here to incase the consumer starts first, it will initiate the channel
+    // if channel already exists == no problem 
     await channel.Result.ExchangeDeclareAsync(exchange: "pubsub", type: ExchangeType.Fanout);
 
-    //declare temp queue 
+    //declare temp queue to consume from
     var queueName = await channel.Result.QueueDeclareAsync();
+
+    // Bind the queue to the exchange
     await channel.Result.QueueBindAsync(queue: queueName, exchange: "pubsub", routingKey: "");
 
 
-    // Consume messages from the temp queue
 
     // Declare Named* queue to consume from
     // await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
-    // setting channel settings to test competing consumer pattern
+    // setting channel settings to test competing consumer pattern 
+    // prefetchsize = max size to fetch, 0 == no limit
+    // prefetchCount = 1 , meaning 1 msg at a time
+    // global=false, this qos settings apply only for this consumer
     await channel.Result.BasicQosAsync(prefetchSize: 0, prefetchCount: 1, global: false);
 
-    // Create consumer
+    // Create consumer 
     var consumer = new AsyncEventingBasicConsumer(channel.Result);
 
-    consumer.ReceivedAsync += async (model, ea) =>
+
+
+    // listener - event happens when a msg recieved model = consumer instance
+    consumer.ReceivedAsync += async (model, msg) =>
     {
 
       var processingTime = new Random().Next(1, 5);
       // Simulate processing the message
-      var body = ea.Body.ToArray();
+      var body = msg.Body.ToArray();
       var message = Encoding.UTF8.GetString(body);
       Console.WriteLine($" [x] Received {message} | Took {processingTime}s to recieve");
 
       // Simulating waiting time to examine the competing consumers pattern
       // between 1-4 seconds
       await Task.Delay(TimeSpan.FromSeconds(processingTime)); // Simulate waiting time
-      await channel.Result.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false);
+      // manual ack
+      await channel.Result.BasicAckAsync(deliveryTag: msg.DeliveryTag, multiple: false);
     };
 
-    // Consume messages
+    // Start Readind/Consuming messages from the queue 
     await channel.Result.BasicConsumeAsync(queue: queueName, autoAck: false, consumer: consumer);
 
     Console.WriteLine(" [*] Waiting for messages. Press [enter] to exit.");
