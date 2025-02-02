@@ -1,66 +1,64 @@
-﻿using System.Text;
-using RabbitMQ.Client;
+﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using System.Text;
 
-internal class RabbitMQConsumer
+const string QUEUE_NAME = "rpc_queue";
+
+var factory = new ConnectionFactory { HostName = "localhost" };
+using var connection = await factory.CreateConnectionAsync();
+using var channel = await connection.CreateChannelAsync();
+
+await channel.QueueDeclareAsync(queue: QUEUE_NAME, durable: false, exclusive: false,
+    autoDelete: false, arguments: null);
+
+await channel.BasicQosAsync(prefetchSize: 0, prefetchCount: 1, global: false);
+
+var consumer = new AsyncEventingBasicConsumer(channel);
+consumer.ReceivedAsync += async (object sender, BasicDeliverEventArgs ea) =>
 {
-  public static async Task Main(string[] args)
-  {
-    var factory = new ConnectionFactory { HostName = "localhost" };
+    AsyncEventingBasicConsumer cons = (AsyncEventingBasicConsumer)sender;
+    IChannel ch = cons.Channel;
+    string response = string.Empty;
 
-    // Create connection (single connection for performance)
-    using var connection = factory.CreateConnectionAsync();
-
-    // Create channel (single channel for simplicity)
-    using var channel = connection.Result.CreateChannelAsync();
-
-    //we declare the exchange here to incase the consumer starts first, it will initiate the channel
-    // if channel already exists == no problem 
-    await channel.Result.ExchangeDeclareAsync(exchange: "pubsub", type: ExchangeType.Fanout);
-
-    //declare temp queue to consume from
-    var queueName = await channel.Result.QueueDeclareAsync();
-
-    // Bind the queue to the exchange
-    await channel.Result.QueueBindAsync(queue: queueName, exchange: "pubsub", routingKey: "");
-
-
-
-    // Declare Named* queue to consume from
-    // await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
-
-    // setting channel settings to test competing consumer pattern 
-    // prefetchsize = max size to fetch, 0 == no limit
-    // prefetchCount = 1 , meaning 1 msg at a time
-    // global=false, this qos settings apply only for this consumer
-    await channel.Result.BasicQosAsync(prefetchSize: 0, prefetchCount: 1, global: false);
-
-    // Create consumer 
-    var consumer = new AsyncEventingBasicConsumer(channel.Result);
-
-
-
-    // listener - event happens when a msg recieved model = consumer instance
-    consumer.ReceivedAsync += async (model, msg) =>
+    byte[] body = ea.Body.ToArray();
+    IReadOnlyBasicProperties props = ea.BasicProperties;
+    var replyProps = new BasicProperties
     {
-
-      var processingTime = new Random().Next(1, 5);
-      // Simulate processing the message
-      var body = msg.Body.ToArray();
-      var message = Encoding.UTF8.GetString(body);
-      Console.WriteLine($" [x] Received {message} | Took {processingTime}s to recieve");
-
-      // Simulating waiting time to examine the competing consumers pattern
-      // between 1-4 seconds
-      await Task.Delay(TimeSpan.FromSeconds(processingTime)); // Simulate waiting time
-      // manual ack
-      await channel.Result.BasicAckAsync(deliveryTag: msg.DeliveryTag, multiple: false);
+        CorrelationId = props.CorrelationId
     };
 
-    // Start Readind/Consuming messages from the queue 
-    await channel.Result.BasicConsumeAsync(queue: queueName, autoAck: false, consumer: consumer);
+    try
+    {
+        var message = Encoding.UTF8.GetString(body);
+        int n = int.Parse(message);
+        Console.WriteLine($" [.] Fib({message})");
+        response = Fib(n).ToString();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($" [.] {e.Message}");
+        response = string.Empty;
+    }
+    finally
+    {
+        var responseBytes = Encoding.UTF8.GetBytes(response);
+        await ch.BasicPublishAsync(exchange: string.Empty, routingKey: props.ReplyTo!,
+            mandatory: true, basicProperties: replyProps, body: responseBytes);
+        await ch.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false);
+    }
+};
 
-    Console.WriteLine(" [*] Waiting for messages. Press [enter] to exit.");
-    Console.ReadLine(); // Keep the program running
-  }
+await channel.BasicConsumeAsync(QUEUE_NAME, false, consumer);
+Console.WriteLine(" [x] Awaiting RPC requests");
+Console.WriteLine(" Press [enter] to exit.");
+Console.ReadLine();
+
+static int Fib(int n)
+{
+    if (n is 0 or 1)
+    {
+        return n;
+    }
+
+    return Fib(n - 1) + Fib(n - 2);
 }

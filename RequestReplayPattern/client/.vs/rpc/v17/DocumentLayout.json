@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\Cleint\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8EF1050A-1C43-4A47-85F7-41E0BDCAFB2C}|..\\server\\server.csproj|c:\\users\\ahmed\\desktop\\projects\\rabbitmq-dotnet\\requestreplaypattern\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EF1050A-1C43-4A47-85F7-41E0BDCAFB2C}|..\\server\\server.csproj|c:\\users\\ahmed\\desktop\\projects\\rabbitmq-dotnet\\requestreplaypattern\\server\\server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37E7FC8D-2629-47EE-A86E-A82D479F4C3A}|Cleint.csproj|c:\\users\\ahmed\\desktop\\projects\\rabbitmq-dotnet\\requestreplaypattern\\cleint\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37E7FC8D-2629-47EE-A86E-A82D479F4C3A}|Cleint.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "server",
+              "DocumentMoniker": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\server\\server.csproj",
+              "RelativeDocumentMoniker": "..\\server\\server.csproj",
+              "ToolTip": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\server\\server.csproj",
+              "RelativeToolTip": "..\\server\\server.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-02T20:11:27.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\server\\Program.cs",
+              "RelativeDocumentMoniker": "..\\server\\Program.cs",
+              "ToolTip": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\server\\Program.cs",
+              "RelativeToolTip": "..\\server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T20:09:11.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\Cleint\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\Cleint\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAxwE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T19:07:52.959Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

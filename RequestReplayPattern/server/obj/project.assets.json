@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "RabbitMQ.Client/7.1.0-alpha.0": {
+      "RabbitMQ.Client/7.0.0": {
         "type": "package",
         "dependencies": {
           "System.IO.Pipelines": "8.0.0",
@@ -54,10 +54,10 @@
     }
   },
   "libraries": {
-    "RabbitMQ.Client/7.1.0-alpha.0": {
-      "sha512": "kVMs9yIfyTHkHmqtPV012fmbIjeMjsXDvFYsSTJV2bI+6N0OPxVPgs1ReSKS25q773YM9rjCM1tD/iS0AFDMDw==",
+    "RabbitMQ.Client/7.0.0": {
+      "sha512": "8YJz22mOSMtkbIVuVSz2HbJwbpKwRoXQ1uqbczDUt1w1Ds8dxFs6dkV/oZ8AlTmkErZjtQelHv+oBu52ud00WA==",
       "type": "package",
-      "path": "rabbitmq.client/7.1.0-alpha.0",
+      "path": "rabbitmq.client/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -67,7 +67,7 @@
         "lib/net8.0/RabbitMQ.Client.xml",
         "lib/netstandard2.0/RabbitMQ.Client.dll",
         "lib/netstandard2.0/RabbitMQ.Client.xml",
-        "rabbitmq.client.7.1.0-alpha.0.nupkg.sha512",
+        "rabbitmq.client.7.0.0.nupkg.sha512",
         "rabbitmq.client.nuspec"
       ]
     },
@@ -132,7 +132,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "RabbitMQ.Client >= 7.1.0-alpha.0"
+      "RabbitMQ.Client >= 7.0.0"
     ]
   },
   "packageFolders": {
@@ -142,11 +142,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\consumer\\consumer.csproj",
-      "projectName": "consumer",
-      "projectPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\consumer\\consumer.csproj",
+      "projectUniqueName": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\server\\server.csproj",
+      "projectName": "server",
+      "projectPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\server\\server.csproj",
       "packagesPath": "C:\\Users\\Ahmed\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\consumer\\obj\\",
+      "outputPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\RequestReplayPattern\\server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -187,7 +187,7 @@
         "dependencies": {
           "RabbitMQ.Client": {
             "target": "Package",
-            "version": "[7.1.0-alpha.0, )"
+            "version": "[7.0.0, )"
           }
         },
         "imports": [
