@@ -16,8 +16,8 @@ internal class RabbitMQSender
     // creating a channel or multiple ones depending on the need
     using var channel = connection.Result.CreateChannelAsync();
 
-    // Creating an exchange (fanout send to all binded queues)
-    await channel.Result.ExchangeDeclareAsync(exchange: "pubsub", type: ExchangeType.Fanout);
+    // Creating an exchange (fanout send to all binded queues) || change exchangeType to Topic allows wildcars (#, *)
+    await channel.Result.ExchangeDeclareAsync(exchange: "DirectRouting", ExchangeType.Direct);
 
     // creating a queue
     // await channel.Result.QueueDeclareAsync(queue: "first_queue", durable: false, exclusive: false, autoDelete: false, arguments: null);
@@ -34,7 +34,8 @@ internal class RabbitMQSender
       var encodedMsgBody = Encoding.UTF8.GetBytes(message);
 
       // we have to public to an exchange - "" = default exchange 
-      await channel.Result.BasicPublishAsync(exchange: "pubsub", routingKey: "", body: encodedMsgBody);
+
+      await channel.Result.BasicPublishAsync(exchange: "DirectRouting", routingKey: messageId % 2 == 0 ? "analytics" : "payments", body: encodedMsgBody);
 
       // confirm by logging to console
       Console.WriteLine($" [x] Sent {message} & took {processingTime}s to send");

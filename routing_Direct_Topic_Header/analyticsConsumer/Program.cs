@@ -34,7 +34,7 @@ internal class RabbitMQConsumer
     await channel.Result.BasicQosAsync(prefetchSize: 0, prefetchCount: 1, global: false);
 
     //binding the channel 
-    await channel.Result.QueueBindAsync(queueName, exchange: "Directrouting", routingKey: "analytics");
+    await channel.Result.QueueBindAsync(queueName, exchange: "DirectRouting", routingKey: "analytics");
 
     // Create consumer 
     var consumer = new AsyncEventingBasicConsumer(channel.Result);
