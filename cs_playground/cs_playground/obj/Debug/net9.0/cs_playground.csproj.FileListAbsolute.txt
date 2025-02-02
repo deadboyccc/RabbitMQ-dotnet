@@ -1,0 +1,15 @@
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\bin\Debug\net9.0\cs_playground.exe
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\bin\Debug\net9.0\cs_playground.deps.json
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\bin\Debug\net9.0\cs_playground.runtimeconfig.json
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\bin\Debug\net9.0\cs_playground.dll
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\bin\Debug\net9.0\cs_playground.pdb
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.sourcelink.json
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.dll
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\refint\cs_playground.dll
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.pdb
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\cs_playground.genruntimeconfig.cache
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net9.0\ref\cs_playground.dll
