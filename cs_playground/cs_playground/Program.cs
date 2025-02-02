@@ -5,21 +5,21 @@ namespace cs_playground
     {
         static void Main(string[] args)
         {
-            DateTime start = DateTime.Now;  
+            DateTime start = DateTime.Now;
             Console.WriteLine("Hello, World!");
             writeMultiplicationTable(5);
-            DateTime dateTest = new(year:2025,month:12,day:3);
+            DateTime dateTest = new(year: 2025, month: 12, day: 3);
             Console.WriteLine(dateTest.ToString());
             Console.WriteLine($"5! = {recursiveFactorial()}");
             Console.WriteLine($"program took {DateTime.Now - start}ms");
-            int test = new Random().Next(1,5);
+            int test = new Random().Next(1, 5);
             string pre = test switch
             {
                 1 => "1st",
-                2 =>"2nd",
-                3=>"3rd",
-                4=>"4th",
-                _=>"default"
+                2 => "2nd",
+                3 => "3rd",
+                4 => "4th",
+                _ => "default"
             };
 
             Console.WriteLine(pre);
@@ -38,11 +38,11 @@ namespace cs_playground
 
 
         }
-        static int recursiveFactorial(int n=5)
+        static int recursiveFactorial(int n = 5)
         {
             if (n == 0) return 0;
-            if(n == 1) return 1;
-            return recursiveFactorial(n-1)*n;
+            if (n == 1) return 1;
+            return recursiveFactorial(n - 1) * n;
         }
         static void writeMultiplicationTable(int n)
         {
