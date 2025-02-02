@@ -1,0 +1,12 @@
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\bin\Debug\net9.0\person.deps.json
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\bin\Debug\net9.0\person.dll
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\bin\Debug\net9.0\person.pdb
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\person.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\person.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\person.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\person.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\person.sourcelink.json
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\person.dll
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\refint\person.dll
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\person.pdb
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\person\obj\Debug\net9.0\ref\person.dll

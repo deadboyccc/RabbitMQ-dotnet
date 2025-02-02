@@ -1,0 +1,5 @@
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net8.0\cs_playground.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net8.0\cs_playground.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net8.0\cs_playground.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net8.0\cs_playground.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\Projects\RabbitMQ-dotnet\cs_playground\cs_playground\obj\Debug\net8.0\cs_playground.sourcelink.json

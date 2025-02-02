@@ -1,4 +1,4 @@
-﻿using env = System.Environment;
+﻿using Env = System.Environment;
 namespace cs_playground
 {
     internal class Program
@@ -23,11 +23,13 @@ namespace cs_playground
             };
 
             Console.WriteLine(pre);
-            Console.WriteLine(env.OSVersion.ToString());
+            Console.WriteLine(Env.OSVersion.ToString());
             int x = 0, y = 1;
 
             swap(ref x, ref y);
             Console.WriteLine($"{x},{y}");
+            var p1 = new person.shared.Person("test", "test", 15);
+            Console.WriteLine(p1);
 
         }
         static void swap(ref int x, ref int y)
