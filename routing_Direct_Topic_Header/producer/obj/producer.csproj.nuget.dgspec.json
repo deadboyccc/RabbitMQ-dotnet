@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\producer\\producer.csproj": {}
+    "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\routing_Direct_Topic_Header\\producer\\producer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\producer\\producer.csproj": {
+    "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\routing_Direct_Topic_Header\\producer\\producer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\producer\\producer.csproj",
+        "projectUniqueName": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\routing_Direct_Topic_Header\\producer\\producer.csproj",
         "projectName": "producer",
-        "projectPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\producer\\producer.csproj",
+        "projectPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\routing_Direct_Topic_Header\\producer\\producer.csproj",
         "packagesPath": "C:\\Users\\Ahmed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\pubsub_competingConsumers\\producer\\obj\\",
+        "outputPath": "C:\\Users\\Ahmed\\Desktop\\Projects\\RabbitMQ-dotnet\\routing_Direct_Topic_Header\\producer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
