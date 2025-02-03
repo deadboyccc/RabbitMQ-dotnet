@@ -38,12 +38,14 @@ partial class Program
         #region  usage of button class to demonstrate events
         // Usage:
         Button myButton = new Button();
-        myButton.Click += MyClickHandler; // Subscribe to the event
+        // adding 1 funciton to the event so when an event happens these functions that match the clickHanlder delegate gets triggered!
+        myButton.Click += MyClickHandler; // Subscribe to the event .addEventListen + .on in js/ts  [observer pattern 101]
 
         void MyClickHandler(object sender, EventArgs e)
         {
             Console.WriteLine("Button clicked!");
         }
+        MyClickHandler(myButton, EventArgs.Empty);
 
         myButton.OnClick(); // Simulate a button click
         myButton.OnClick(); // Simulate a button click
@@ -63,15 +65,18 @@ partial class Program
     public class Button
     {
         // Delegate type for the event:
+        // the event handler | event listner (the delegate = function pointer) takes the object itself + the eventArguments
         public delegate void ClickHandler(object sender, EventArgs e);
 
         // The event itself:
+        //defining the Event being called CLICK 
         public event ClickHandler? Click; // Or: public event EventHandler Click; (common shortcut)
 
         public void OnClick()
         {
-            // Raise the event (notify subscribers):
-            if (Click != null) // Check if there are any subscribers
+            //simulate a click
+            // raise the event (notify subscribers):
+            if (Click != null) // Check if there are any subscribers 
             {
                 Click(this, EventArgs.Empty); // Invoke the delegate (and thus, all subscribed methods)
             }
