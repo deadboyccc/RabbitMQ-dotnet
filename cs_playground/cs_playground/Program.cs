@@ -3,6 +3,9 @@ namespace cs_playground
 {
     internal class Program
     {
+        // Delegate declaration, think of it as cpp function pointers but with type safety, they hold pointers to funcitons with the same
+        // sig 
+        delegate int myTestDelegate(string s);
         static void Main(string[] args)
         {
             DateTime start = DateTime.Now;
@@ -30,6 +33,24 @@ namespace cs_playground
             Console.WriteLine($"{x},{y}");
             var p1 = new person.shared.Person("test", "test", 15);
             Console.WriteLine(p1);
+
+            // Method that matches the delegate signature:
+            int MyMethod(string s)
+            {
+                return s.Length;
+            }
+
+
+
+            // Usage:
+            // 1) you have to create a delgate(function pointer) instance 
+            myTestDelegate del = new myTestDelegate(MyMethod); // Create a delegate instance
+            //2) then you can call the instance of the functional pointer(delegate)
+            int length = del("Hello"); // Invoke the method through the delegate
+            Console.WriteLine(length);
+
+
+
 
         }
         static void swap(ref int x, ref int y)

@@ -1,7 +1,7 @@
 ﻿
 namespace test;
 
-class Program
+partial class Program
 {
     static void Main(string[] args)
     {
@@ -13,6 +13,13 @@ class Program
         Person.DelegateWithMatchingSignature myDelegate = new Person.DelegateWithMatchingSignature(p1.methodIwantTocall);
         int answer = myDelegate("hfoaewjf");
         Console.WriteLine(answer);
+        //8 
+        Console.WriteLine(p1.AngerLevel);
+        p1.Shout += (sender, args) => Console.WriteLine($"The person {sender} is shouting. Anger level: {p1.AngerLevel}");
+        p1.Poke();
+        p1.Poke();
+        p1.Poke();
+        Console.WriteLine(p1.AngerLevel);
 
 
 
@@ -59,6 +66,7 @@ class Program
                 // ...then call the delegate to "raise" the event.
                 Shout(this, EventArgs.Empty);
             }
+            //new C# is to use the a feature similar to js/ts shout?. it exists then invoke it on the same parameters
         }
         #endregion events
 
