@@ -18,11 +18,13 @@ public class Person
   {
     return $"{FirstName} {LastName}, {Age} years old";
   }
-  public int original(string s)
+  public int methodIwantTocall(string s)
   {
     return s.Length;
   }
-  public delegate int returnFunLen(string s);
+  delegate int DelegateWithMatchingSignature(string s);
+
+
 
 
 }
