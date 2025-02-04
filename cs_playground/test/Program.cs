@@ -52,6 +52,30 @@ partial class Program
         myButton.OnClick(); // Simulate a button click
         myButton.OnClick(); // Simulate a button click
         #endregion
+        #region car class ussage
+        Car car1 = new("Lambo");
+        Car.Drive func = new Car.Drive(car1.method);
+        func.Invoke();
+        func.Invoke();
+        func.Invoke();
+        func.Invoke();
+        func.Invoke();
+        // with events
+        Car car2 = new("Tesla");
+        Car.Drive func2 = new Car.Drive(car2.method);
+        car2.Driving += carfun;
+        func2.Invoke();
+        void carfun(object sender, EventArgs e)
+        {
+            Console.WriteLine($"The {car2.Make} car is on gas.");
+        }
+        car2.onGas();
+        car2.onGas();
+        car2.onGas();
+        car2.onGas();
+        car2.onGas();
+        car2.onGas();
+        #endregion
 
 
 
@@ -60,6 +84,40 @@ partial class Program
 
 
     }
+    #region Car Calss
+    public class Car
+    {
+        public string Make { get; set; }
+        public Car(string m)
+        {
+            Make = m;
+        }
+        public delegate void Drive();
+        public void method()
+        {
+            Console.WriteLine($"The {Make} car is driving.");
+        }
+        #region car Event
+        // the delegate
+        public delegate void GasHandler(object sender, EventArgs e);
+        // the event 
+        public event GasHandler? Driving; //  public event EventHandler Click; (common shortcut)
+        #endregion
+
+        public void onGas()
+        {
+            //simulate a pedal
+            // raise the event (notify subscribers):
+            if (Driving != null) // Check if there are any subscribers 
+            {
+                Driving(this, EventArgs.Empty); // Invoke the delegate (and thus, all subscribed methods)
+            }
+        }
+
+
+    }
+    #endregion
+
     //testing events
     #region buttonClass 
     public class Button
@@ -83,7 +141,6 @@ partial class Program
         }
     }
     #endregion
-
     public class Person
     {
         public string FirstName { get; set; }
