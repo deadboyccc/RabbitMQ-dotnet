@@ -16,7 +16,27 @@ internal class Program
       Console.WriteLine(person.FirstName);
     }
     Console.WriteLine("________________________");
-
+    Console.WriteLine("________________________");
+    // Expermenting with the system.threads :\
+    Console.WriteLine("Current Thread ID: " + System.Threading.Thread.CurrentThread.ManagedThreadId);
+    Console.WriteLine("________________________");
+    Console.WriteLine("Is Background: " + System.Threading.Thread.CurrentThread.IsBackground);
+    Console.WriteLine("________________________");
+    Console.WriteLine(Thread.CurrentThread.IsBackground);
+    Console.WriteLine("________________________");
+    Console.WriteLine(Thread.CurrentThread.IsThreadPoolThread);
+    Console.WriteLine("________________________");
+    Console.WriteLine(Thread.CurrentThread.IsAlive);
+    Console.WriteLine("________________________");
+    Console.WriteLine(Thread.CurrentThread.Priority);
+    Console.WriteLine("________________________");
+    Console.WriteLine(Thread.CurrentThread.Name);
+    Console.WriteLine("________________________");
+    Console.WriteLine(Thread.CurrentThread.Priority);
+    Console.WriteLine("________________________");
+    Console.WriteLine(Thread.CurrentThread.Name);
+    Console.WriteLine("________________________");
+    Console.WriteLine("________________________");
   }
 }
 public interface IMediaPlyaer
