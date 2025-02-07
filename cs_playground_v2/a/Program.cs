@@ -2,8 +2,10 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
+        await wait(10);
+
         Console.WriteLine("Hello, World!");
         var kb = new Keyboard("Logitech");
         kb.KeyPress += kb.keyPressListener;
@@ -18,6 +20,46 @@ class Program
         // so basically delegate define the structure of the function that can attach to the event
         // the event is like a list of function pointers that matches the delegate sig, these functions being pointed to fire when the event happens aka get called 
         kb.onPress();
+        Console.WriteLine("--------------------------");
+        var personLi = new List<Person>(
+
+        ){
+            new Person("Ahmed", 24),
+            new Person("John", 30),
+            new Person("Emily", 28)
+        };
+        personLi.Sort();
+        foreach (var person in personLi)
+        {
+            Console.WriteLine(person.FirstName);
+        }
+
+    }
+    public class Person : IComparable<Person>
+    {
+        public string FirstName { get; set; }
+        public int age { get; set; }
+        public Person(string FirstName, int age)
+        {
+            this.FirstName = FirstName;
+            this.age = age;
+        }
+
+        int IComparable<Person>.CompareTo(Person? other)
+        {
+            if (this.FirstName.ElementAt(0) > other!.FirstName.ElementAt(0))
+            {
+                return -1;
+            }
+            else if (this.FirstName.ElementAt(0) < other.FirstName.ElementAt(0))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 
     class Keyboard
@@ -55,5 +97,10 @@ class Program
         {
             Console.WriteLine("Key Broke");
         }
+
+    }
+    public static async Task wait(int durationInSeconds)
+    {
+        await Task.Delay(durationInSeconds * 1000);
     }
 }
