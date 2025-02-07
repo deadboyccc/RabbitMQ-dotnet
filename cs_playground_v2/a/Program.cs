@@ -4,7 +4,7 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        await wait(10);
+        await wait(1);
 
         Console.WriteLine("Hello, World!");
         var kb = new Keyboard("Logitech");
@@ -47,11 +47,11 @@ class Program
 
         int IComparable<Person>.CompareTo(Person? other)
         {
-            if (this.FirstName.ElementAt(0) > other!.FirstName.ElementAt(0))
+            if (this.FirstName.ElementAt(0) < other!.FirstName.ElementAt(0))
             {
                 return -1;
             }
-            else if (this.FirstName.ElementAt(0) < other.FirstName.ElementAt(0))
+            else if (this.FirstName.ElementAt(0) > other.FirstName.ElementAt(0))
             {
                 return 1;
             }
