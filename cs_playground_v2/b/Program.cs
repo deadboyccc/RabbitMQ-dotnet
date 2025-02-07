@@ -18,19 +18,32 @@ internal class Program
     Console.WriteLine("________________________");
 
   }
-  public interface IMediaPlyaer
+}
+public interface IMediaPlyaer
+{
+  // pub abstract interfaces
+  void Play();
+  void Pause();
+  // BUT XD
+  void Stop()
   {
-    // pub abstract interfaces
-    void Play();
-    void Pause();
-    // BUT XD
-    void Stop()
-    {
-      Console.WriteLine("Stop");
-    }
+    Console.WriteLine("Stop");
+  }
+}
+
+public class MusicPlayer : IMediaPlyaer
+{
+  public void Play()
+  {
+    Console.WriteLine("Play Music");
+  }
+  public void Pause()
+  {
+    Console.WriteLine("Pause Music");
   }
 
 }
+
 class Person
 {
   public string FirstName { get; set; }
@@ -57,5 +70,4 @@ class CompareTwo : IComparer<Person>
       return 0;
     }
   }
-}
 }
